@@ -7,18 +7,11 @@ function Book({title, author, year}) {
         <div>
                 <h2 key={title}>{title}</h2>
                 {
-                    // showDetails && // or ternary operator
-                    // <>
-                    //     <h3>{author}</h3>
-                    //     <h3>{year}</h3>
-                    // </>
-
-                    showDetails ?
+                    showDetails && //falsy operator
                     <>
                         <h3>{author}</h3>
                         <h3>{year}</h3>
-                    </>: null
-
+                    </>
                 }
                 
                 <button onClick={() =>{
