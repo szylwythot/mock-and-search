@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const [loading, setLoading] = useState(false);
+
+    async function fetchBooks(){
+        const response = await fetch("http://www.testdomain.com/v1/api/books");
+        const responseJson = await response.json();
+        console.log(responseJson);
+    }
+
+    useEffect(
+        () => {
+            setLoading(true);
+            fetchBooks();
+        },
+        []
+    );
+
+    return (
+        <div className="App">
+            
+        </div>
+    );
 }
 
 export default App;
