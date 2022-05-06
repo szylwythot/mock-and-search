@@ -37,8 +37,7 @@ function App() {
     return (
         <div className="App">
             {/* <LoadingBooks isLoading={loading} /> */}
-
-            {   
+            {
                 loading ? 
                 <LoadingMask/> :
                 books.map(({title, author, year}) => <Book key={title} title={title} year={year} author={author} />)
